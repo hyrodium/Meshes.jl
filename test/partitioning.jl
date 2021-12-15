@@ -13,6 +13,8 @@
     p = partition(grid, UniformPartition(3, false))
     @test setify(indices(p)) == setify([[1,2,3], [4,5,6], [7,8,9]])
     p = partition(grid, UniformPartition(3))
+
+    # The random number generation algorithm has been changed since Julia 1.7.
     if VERSION < v"1.7"
       @test setify(indices(p)) == setify([[8,6,9], [4,1,7], [2,3,5]])
     else
